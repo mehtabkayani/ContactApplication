@@ -7,6 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //Creates an instance of Util
         Util util = new Util();
         //Calls createPersons() to create a list of 10 persons
         util.createPersons();

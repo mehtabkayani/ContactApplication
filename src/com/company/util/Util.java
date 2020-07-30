@@ -10,6 +10,7 @@ public class Util {
     static Scanner scanner = new Scanner(System.in);
     static List<Person> listOfPersons = new ArrayList<>();
 
+    //Creates a list of peoples with their details
     public List<Person> createPersons() {
 
         Person person1 = new Person("Mehtab Kayani", "Stockholmsvägen 25", "0735865680", "001122", "19890711");
@@ -39,8 +40,8 @@ public class Util {
     public List<Person> getPersonByName(String name) {
         List<Person> filteredList = new ArrayList<>();
         for (Person person : listOfPersons) {
+            //Adds person to filteredList if condition is met otherwise it ignores the person
             if (person.getFullName().toLowerCase().contains(name.toLowerCase())) {
-
                 filteredList.add(person);
             }
         }
@@ -50,35 +51,36 @@ public class Util {
     public List<Person> getPersonByNumber(String number) {
         List<Person> filteredList = new ArrayList<>();
         for (Person person : listOfPersons) {
+            //Adds person to filteredList if condition is met otherwise it ignores the person
             if (person.getMobileNumber().contains(number)) {
                 filteredList.add(person);
             }
         }
-       return filteredList;
+        return filteredList;
 
     }
 
-    public int searchOption(int choise){
+    public int searchOption(int choice) {
 
-        if (choise == 1) {
+        if (choice == 1) {
             System.out.println("Enter the name you are looking for: ");
             String name = scanner.next();
             //Call getPersonByName() and returns a list
             List<Person> filterList = getPersonByName(name);
-            if(filterList.isEmpty()){
+            if (filterList.isEmpty()) {
                 System.out.println("****************");
                 System.out.println("*No match found*");
                 System.out.println("****************");
-               System.exit(0);
+                System.exit(0);
             }
             filterList.forEach(person -> System.out.println(person));
 
-        } else if (choise == 2) {
+        } else if (choice == 2) {
             System.out.println("Enter the telephone number you are looking for: ");
             String number = scanner.next();
             //Call getPersonByNumber() and returns a list
             List<Person> filterList = getPersonByNumber(number);
-            if(filterList.isEmpty()){
+            if (filterList.isEmpty()) {
                 System.out.println("****************");
                 System.out.println("*No match found*");
                 System.out.println("****************");
@@ -92,7 +94,7 @@ public class Util {
             System.out.println("Choose option 1 or 2");
             start();
         }
-        return choise;
+        return choice;
     }
 
     public int start() {
